@@ -6,7 +6,7 @@ import android.hardware.SensorEventListener;
 import android.util.Log;
 import android.widget.EditText;
 
-public class AcceleroMeterListener implements SensorEventListener, ComInterface {
+public class AcceleroMeterListener extends ComSensorEventListener {
 
     int eventIndex = 0;
 
@@ -26,16 +26,6 @@ public class AcceleroMeterListener implements SensorEventListener, ComInterface 
         this.linearAcc[0] = activity.findViewById(R.id.linear_acc_00);
         this.linearAcc[1] = activity.findViewById(R.id.linear_acc_01);
         this.linearAcc[2] = activity.findViewById(R.id.linear_acc_02);
-    }
-
-    public double getVectorLength(float[] vector) {
-        double length = 0;
-
-        for (float element : vector) {
-            length += element * element;
-        }
-
-        return Math.sqrt(length);
     }
 
     @Override

@@ -94,6 +94,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.12" />
 
             <EditText
@@ -103,6 +104,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -112,6 +114,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -121,6 +124,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
         </TableRow>
 
@@ -145,6 +149,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.12" />
 
             <EditText
@@ -154,6 +159,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -163,6 +169,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -172,6 +179,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
         </TableRow>
 
@@ -195,6 +203,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.12" />
 
             <EditText
@@ -204,6 +213,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -213,6 +223,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
 
             <EditText
@@ -222,6 +233,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:gravity="right"
+                android:editable="false"
                 android:text="0.1234" />
         </TableRow>
 

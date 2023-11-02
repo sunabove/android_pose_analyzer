@@ -7,7 +7,7 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import android.widget.EditText;
 
-public class GyroListener implements SensorEventListener, ComInterface {
+public class GyroListener extends ComSensorEventListener {
 
     int eventIndex = 0;
 
@@ -24,20 +24,6 @@ public class GyroListener implements SensorEventListener, ComInterface {
         this.angularVelocity[0] = activity.findViewById(R.id.angular_velocity_00);
         this.angularVelocity[1] = activity.findViewById(R.id.angular_velocity_01);
         this.angularVelocity[2] = activity.findViewById(R.id.angular_velocity_02);
-    }
-
-    public double getVectorLength(float[] vector) {
-        double length = 0;
-
-        for (float element : vector) {
-            length += element * element;
-        }
-
-        return Math.sqrt(length);
-    }
-
-    public double toDegree(double angrad) {
-        return Math.toDegrees( angrad );
     }
 
     @Override
