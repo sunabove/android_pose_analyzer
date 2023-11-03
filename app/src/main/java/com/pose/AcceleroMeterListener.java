@@ -2,7 +2,6 @@ package com.pose;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.util.Log;
 import android.widget.EditText;
 
@@ -11,21 +10,21 @@ public class AcceleroMeterListener extends ComSensorEventListener {
     int eventIndex = 0;
 
     EditText gravity_abs;
-    EditText gravity[] = new EditText[3];
+    EditText gravityView[] = new EditText[3];
 
     EditText linearAccAbs;
-    EditText linearAcc[] = new EditText[3];
+    EditText linearAccView[] = new EditText[3];
 
     public AcceleroMeterListener(MainActivity activity) {
         this.gravity_abs = activity.findViewById(R.id.gravity_abs);
-        this.gravity[0] = activity.findViewById(R.id.gravity_00);
-        this.gravity[1] = activity.findViewById(R.id.gravity_01);
-        this.gravity[2] = activity.findViewById(R.id.gravity_02);
+        this.gravityView[0] = activity.findViewById(R.id.gravity_00);
+        this.gravityView[1] = activity.findViewById(R.id.gravity_01);
+        this.gravityView[2] = activity.findViewById(R.id.gravity_02);
 
         this.linearAccAbs = activity.findViewById(R.id.linear_acc_abs);
-        this.linearAcc[0] = activity.findViewById(R.id.linear_acc_00);
-        this.linearAcc[1] = activity.findViewById(R.id.linear_acc_01);
-        this.linearAcc[2] = activity.findViewById(R.id.linear_acc_02);
+        this.linearAccView[0] = activity.findViewById(R.id.linear_acc_00);
+        this.linearAccView[1] = activity.findViewById(R.id.linear_acc_01);
+        this.linearAccView[2] = activity.findViewById(R.id.linear_acc_02);
     }
 
     @Override
@@ -39,29 +38,29 @@ public class AcceleroMeterListener extends ComSensorEventListener {
         final float alpha = 0.8f;
 
         float gravity[] = new float[3];
-        float linear_acceleration[] = new float[3];
-        float[] g = new float[3];
-        System.arraycopy(event.values, 0, g, 0, 3);
+        float linear_accels[] = new float[3];
+
+        System.arraycopy(event.values, 0, accels, 0, 3);
 
         // Isolate the force of gravity with the low-pass filter.
-        gravity[0] = alpha * gravity[0] + (1 - alpha) * g[0];
-        gravity[1] = alpha * gravity[1] + (1 - alpha) * g[1];
-        gravity[2] = alpha * gravity[2] + (1 - alpha) * g[2];
+        gravity[0] = alpha * gravity[0] + (1 - alpha) * accels[0];
+        gravity[1] = alpha * gravity[1] + (1 - alpha) * accels[1];
+        gravity[2] = alpha * gravity[2] + (1 - alpha) * accels[2];
 
         // Remove the gravity contribution with the high-pass filter.
-        linear_acceleration[0] = g[0] - gravity[0];
-        linear_acceleration[1] = g[1] - gravity[1];
-        linear_acceleration[2] = g[2] - gravity[2];
+        linear_accels[0] = accels[0] - gravity[0];
+        linear_accels[1] = accels[1] - gravity[1];
+        linear_accels[2] = accels[2] - gravity[2];
 
-        this.gravity_abs.setText(String.format("%.2f", getVectorLength(g)));
-        this.gravity[0].setText(String.format("%.2f", g[0]));
-        this.gravity[1].setText(String.format("%.2f", g[1]));
-        this.gravity[2].setText(String.format("%.2f", g[2]));
+        this.gravity_abs.setText(String.format("%.2f", getVectorLength(accels)));
+        this.gravityView[0].setText(String.format("%.2f", accels[0]));
+        this.gravityView[1].setText(String.format("%.2f", accels[1]));
+        this.gravityView[2].setText(String.format("%.2f", accels[2]));
 
-        this.linearAccAbs.setText(String.format("%.2f", getVectorLength(linear_acceleration)));
-        this.linearAcc[0].setText(String.format("%.2f", linear_acceleration[0]));
-        this.linearAcc[1].setText(String.format("%.2f", linear_acceleration[1]));
-        this.linearAcc[2].setText(String.format("%.2f", linear_acceleration[2]));
+        this.linearAccAbs.setText(String.format("%.2f", getVectorLength(linear_accels)));
+        this.linearAccView[0].setText(String.format("%.2f", linear_accels[0]));
+        this.linearAccView[1].setText(String.format("%.2f", linear_accels[1]));
+        this.linearAccView[2].setText(String.format("%.2f", linear_accels[2]));
 
         Log.d(TAG, "");
         Log.d(TAG, LINE);

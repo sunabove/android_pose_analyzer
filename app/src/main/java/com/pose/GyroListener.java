@@ -2,7 +2,6 @@ package com.pose;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 import android.widget.EditText;
@@ -12,18 +11,18 @@ public class GyroListener extends ComSensorEventListener {
     int eventIndex = 0;
 
     final float NS2S = 1.0f / 1000000000.0f;
-    final float EPSILON = 1e-6f;
+    final float EPSILON = 1.0f / 1000000f ;
     final float[] deltaRotationVector = new float[4];
     float timestamp;
 
     EditText angularVelocityAbs;
-    EditText angularVelocity[] = new EditText[3];
+    EditText angularVelocityView [] = new EditText[3];
 
     public GyroListener(MainActivity activity) {
         this.angularVelocityAbs = activity.findViewById(R.id.angular_velocity_abs);
-        this.angularVelocity[0] = activity.findViewById(R.id.angular_velocity_00);
-        this.angularVelocity[1] = activity.findViewById(R.id.angular_velocity_01);
-        this.angularVelocity[2] = activity.findViewById(R.id.angular_velocity_02);
+        this.angularVelocityView[0] = activity.findViewById(R.id.angular_velocity_00);
+        this.angularVelocityView[1] = activity.findViewById(R.id.angular_velocity_01);
+        this.angularVelocityView[2] = activity.findViewById(R.id.angular_velocity_02);
     }
 
     @Override
@@ -36,11 +35,11 @@ public class GyroListener extends ComSensorEventListener {
             final float dT = (event.timestamp - timestamp) * NS2S;
 
             // Axis of the rotation sample, not normalized yet.
-            float [] w = event.values ;
+            float [] omega = event.values ;
 
-            float axisX = event.values[0];
-            float axisY = event.values[1];
-            float axisZ = event.values[2];
+            float axisX = omega[0];
+            float axisY = omega[1];
+            float axisZ = omega[2];
 
             // Calculate the angular speed of the sample
             double omegaMagnitude = Math.sqrt(axisX*axisX + axisY*axisY + axisZ*axisZ);
@@ -67,9 +66,9 @@ public class GyroListener extends ComSensorEventListener {
             deltaRotationVector[3] = (float) cosThetaOverTwo;
 
             this.angularVelocityAbs.setText(String.format("%+4.1f", toDegree( omegaMagnitude ) ) );
-            this.angularVelocity[0].setText(String.format("%+4.1f", toDegree( w[0] ) ) );
-            this.angularVelocity[1].setText(String.format("%+4.1f", toDegree( w[1] ) ) );
-            this.angularVelocity[2].setText(String.format("%+4.1f", toDegree( w[2] ) ) );
+            this.angularVelocityView[0].setText(String.format("%+4.1f", toDegree( omega[0] ) ) );
+            this.angularVelocityView[1].setText(String.format("%+4.1f", toDegree( omega[1] ) ) );
+            this.angularVelocityView[2].setText(String.format("%+4.1f", toDegree( omega[2] ) ) );
         }
 
         this.timestamp = event.timestamp;
@@ -78,7 +77,6 @@ public class GyroListener extends ComSensorEventListener {
         SensorManager.getRotationMatrixFromVector(deltaRotationMatrix, deltaRotationVector);
         // User code should concatenate the delta rotation we computed with the current rotation
         // in order to get the updated rotation.
-        // rotationCurrent = rotationCurrent * deltaRotationMatrix;
 
         Log.d(TAG, "");
         Log.d(TAG, LINE);

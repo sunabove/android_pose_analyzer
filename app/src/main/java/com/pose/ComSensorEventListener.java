@@ -4,6 +4,13 @@ import android.hardware.SensorEventListener;
 
 public abstract class ComSensorEventListener implements SensorEventListener, ComInterface {
 
+    protected float[] accels = new float[3]; // accelerations from TYPE_ACCELEROMETER sensor
+
+    public ComSensorEventListener() {
+
+    }
+
+
     public final double getVectorLength(float[] vector) {
         double length = 0;
 

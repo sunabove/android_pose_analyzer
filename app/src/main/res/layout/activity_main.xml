@@ -72,6 +72,13 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text=" Z " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Unit" />
         </TableRow>
 
         <TableRow
@@ -91,17 +98,17 @@
                 android:id="@+id/gravity_abs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
-                android:text="0.12" />
+                android:text="0.1234" />
 
             <EditText
                 android:id="@+id/gravity_00"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -111,7 +118,7 @@
                 android:id="@+id/gravity_01"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -121,11 +128,19 @@
                 android:id="@+id/gravity_02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
                 android:text="0.1234" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:singleLine="true"
+                android:text="m/s²" />
         </TableRow>
 
         <TableRow
@@ -139,24 +154,24 @@
                 android:layout_weight="0"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="Linear Acc. "
+                android:text="Linr Acc. "
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/linear_acc_abs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
-                android:text="0.12" />
+                android:text="0.1234" />
 
             <EditText
                 android:id="@+id/linear_acc_00"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -166,7 +181,7 @@
                 android:id="@+id/linear_acc_01"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -176,11 +191,19 @@
                 android:id="@+id/linear_acc_02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
                 android:text="0.1234" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:singleLine="true"
+                android:text="m/s²" />
         </TableRow>
 
         <TableRow
@@ -193,24 +216,24 @@
                 android:layout_weight="0"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="Ang Speed "
+                android:text="Ang Spd "
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/angular_velocity_abs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
-                android:text="0.12" />
+                android:text="0.1234" />
 
             <EditText
                 android:id="@+id/angular_velocity_00"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -220,7 +243,7 @@
                 android:id="@+id/angular_velocity_01"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
@@ -230,11 +253,19 @@
                 android:id="@+id/angular_velocity_02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:singleLine="true"
                 android:gravity="right"
                 android:editable="false"
                 android:text="0.1234" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:singleLine="true"
+                android:text="°/s" />
         </TableRow>
 
         <TableRow

@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity implements ComInterface {
         setContentView(R.layout.activity_main);
 
         this.sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        this.gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+
+        this.acceleroMeter = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         this.rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         this.motionSensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION);
         this.stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        this.acceleroMeter = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         this.gyroSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
         this.accelerometerListener = new AcceleroMeterListener( this ) ;
