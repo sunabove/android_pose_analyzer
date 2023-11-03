@@ -152,9 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="Linr Acc. "
+                android:text="Linerr Acc."
                 android:textSize="18sp" />
 
             <EditText
@@ -214,7 +214,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="Ang Spd "
                 android:textSize="18sp" />
@@ -266,6 +266,64 @@
                 android:gravity="center_vertical|left"
                 android:singleLine="true"
                 android:text="°/s" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="Rot Ang "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+
+            <EditText
+                android:id="@+id/rotation_angle_00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:gravity="right"
+                android:editable="false"
+                android:text="0.1234" />
+
+            <EditText
+                android:id="@+id/rotation_angle_01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:gravity="right"
+                android:editable="false"
+                android:text="0.1234" />
+
+            <EditText
+                android:id="@+id/rotation_angle_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:gravity="right"
+                android:editable="false"
+                android:text="0.1234" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:singleLine="true"
+                android:text="° Deg`" />
         </TableRow>
 
         <TableRow

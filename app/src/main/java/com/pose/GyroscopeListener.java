@@ -18,11 +18,17 @@ public class GyroscopeListener extends ComSensorEventListener {
     EditText angularVelocityAbs;
     EditText angularVelocityView [] = new EditText[3];
 
+    EditText rotationAngleView [] = new EditText[3];
+
     public GyroscopeListener(MainActivity activity) {
         this.angularVelocityAbs = activity.findViewById(R.id.angular_velocity_abs);
         this.angularVelocityView[0] = activity.findViewById(R.id.angular_velocity_00);
         this.angularVelocityView[1] = activity.findViewById(R.id.angular_velocity_01);
         this.angularVelocityView[2] = activity.findViewById(R.id.angular_velocity_02);
+
+        this.rotationAngleView[0] = activity.findViewById(R.id.rotation_angle_00);
+        this.rotationAngleView[1] = activity.findViewById(R.id.rotation_angle_01);
+        this.rotationAngleView[2] = activity.findViewById(R.id.rotation_angle_02);
     }
 
     @Override
@@ -77,6 +83,31 @@ public class GyroscopeListener extends ComSensorEventListener {
         SensorManager.getRotationMatrixFromVector(deltaRotationMatrix, deltaRotationVector);
         // User code should concatenate the delta rotation we computed with the current rotation
         // in order to get the updated rotation.
+
+        if( acceleration != null && omega != null ) {
+            float [] gravity = new float[9];
+            float [] magnetic = new float[9];
+            float[] values = new float[3];
+
+            SensorManager.getRotationMatrix(gravity, magnetic, acceleration, omega);
+
+            float[] outGravity = new float[9];
+            SensorManager.remapCoordinateSystem(gravity, SensorManager.AXIS_X, SensorManager.AXIS_Z, outGravity);
+            SensorManager.getOrientation(outGravity, values);
+
+            float yaw   = values[0] * 57.2957795f;
+            float pitch = values[1] * 57.2957795f;
+            float roll  = values[2] * 57.2957795f;
+
+            this.rotationAngleView[0].setText(String.format("%4.1f", yaw ) );
+            this.rotationAngleView[1].setText(String.format("%4.1f", pitch ) );
+            this.rotationAngleView[2].setText(String.format("%4.1f", roll ) );
+
+        } else {
+            this.rotationAngleView[0].setText( "" );
+            this.rotationAngleView[1].setText( "" );
+            this.rotationAngleView[2].setText( "" );
+        }
 
         Log.d(TAG, "");
         Log.d(TAG, LINE);

@@ -40,22 +40,22 @@ public class AccelerometerListener extends ComSensorEventListener {
         float gravity[] = new float[3];
         float linear_accels[] = new float[3];
 
-        float [] accels = event.values.clone();
+        acceleration = event.values.clone();
 
         // Isolate the force of gravity with the low-pass filter.
-        gravity[0] = alpha * gravity[0] + (1 - alpha) * accels[0];
-        gravity[1] = alpha * gravity[1] + (1 - alpha) * accels[1];
-        gravity[2] = alpha * gravity[2] + (1 - alpha) * accels[2];
+        gravity[0] = alpha * gravity[0] + (1 - alpha) * acceleration[0];
+        gravity[1] = alpha * gravity[1] + (1 - alpha) * acceleration[1];
+        gravity[2] = alpha * gravity[2] + (1 - alpha) * acceleration[2];
 
         // Remove the gravity contribution with the high-pass filter.
-        linear_accels[0] = accels[0] - gravity[0];
-        linear_accels[1] = accels[1] - gravity[1];
-        linear_accels[2] = accels[2] - gravity[2];
+        linear_accels[0] = acceleration[0] - gravity[0];
+        linear_accels[1] = acceleration[1] - gravity[1];
+        linear_accels[2] = acceleration[2] - gravity[2];
 
-        this.gravity_abs.setText(String.format("%.2f", getVectorLength(accels)));
-        this.gravityView[0].setText(String.format("%.2f", accels[0]));
-        this.gravityView[1].setText(String.format("%.2f", accels[1]));
-        this.gravityView[2].setText(String.format("%.2f", accels[2]));
+        this.gravity_abs.setText(String.format("%.2f", getVectorLength(acceleration)));
+        this.gravityView[0].setText(String.format("%.2f", acceleration[0]));
+        this.gravityView[1].setText(String.format("%.2f", acceleration[1]));
+        this.gravityView[2].setText(String.format("%.2f", acceleration[2]));
 
         this.linearAccAbs.setText(String.format("%.2f", getVectorLength(linear_accels)));
         this.linearAccView[0].setText(String.format("%.2f", linear_accels[0]));
