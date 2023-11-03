@@ -91,9 +91,15 @@ public class GyroscopeListener extends ComSensorEventListener {
 
             SensorManager.getRotationMatrix(gravity, magnetic, acceleration, omega);
 
-            float[] outGravity = new float[9];
-            SensorManager.remapCoordinateSystem(gravity, SensorManager.AXIS_X, SensorManager.AXIS_Z, outGravity);
-            SensorManager.getOrientation(outGravity, values);
+            boolean remap = false ;
+
+            if( remap ) {
+                float[] outGravity = new float[9];
+                SensorManager.remapCoordinateSystem(gravity, SensorManager.AXIS_X, SensorManager.AXIS_Z, outGravity);
+                SensorManager.getOrientation(outGravity, values);
+            } else {
+                SensorManager.getOrientation(gravity, values);
+            }
 
             float yaw   = values[0] * 57.2957795f;
             float pitch = values[1] * 57.2957795f;
