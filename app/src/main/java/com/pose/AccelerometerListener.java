@@ -5,7 +5,7 @@ import android.hardware.SensorEvent;
 import android.util.Log;
 import android.widget.EditText;
 
-public class AcceleroMeterListener extends ComSensorEventListener {
+public class AccelerometerListener extends ComSensorEventListener {
 
     int eventIndex = 0;
 
@@ -15,7 +15,7 @@ public class AcceleroMeterListener extends ComSensorEventListener {
     EditText linearAccAbs;
     EditText linearAccView[] = new EditText[3];
 
-    public AcceleroMeterListener(MainActivity activity) {
+    public AccelerometerListener(MainActivity activity) {
         this.gravity_abs = activity.findViewById(R.id.gravity_abs);
         this.gravityView[0] = activity.findViewById(R.id.gravity_00);
         this.gravityView[1] = activity.findViewById(R.id.gravity_01);
@@ -40,7 +40,7 @@ public class AcceleroMeterListener extends ComSensorEventListener {
         float gravity[] = new float[3];
         float linear_accels[] = new float[3];
 
-        System.arraycopy(event.values, 0, accels, 0, 3);
+        float [] accels = event.values.clone();
 
         // Isolate the force of gravity with the low-pass filter.
         gravity[0] = alpha * gravity[0] + (1 - alpha) * accels[0];

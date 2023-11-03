@@ -4,12 +4,17 @@ import android.hardware.SensorEventListener;
 
 public abstract class ComSensorEventListener implements SensorEventListener, ComInterface {
 
-    protected float[] accels = new float[3]; // accelerations from TYPE_ACCELEROMETER sensor
+    protected static float [] accels = null; // acceleration from TYPE_ACCELEROMETER
+    protected static float [] omega = null;  // angular velocity from Sensor.TYPE_GYROSCOPE)
 
     public ComSensorEventListener() {
-
+        super();
     }
 
+    public static void initSensorData() {
+        accels = null ;
+        omega = null ;
+    }
 
     public final double getVectorLength(float[] vector) {
         double length = 0;

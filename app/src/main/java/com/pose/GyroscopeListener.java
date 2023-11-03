@@ -6,7 +6,7 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import android.widget.EditText;
 
-public class GyroListener extends ComSensorEventListener {
+public class GyroscopeListener extends ComSensorEventListener {
 
     int eventIndex = 0;
 
@@ -18,7 +18,7 @@ public class GyroListener extends ComSensorEventListener {
     EditText angularVelocityAbs;
     EditText angularVelocityView [] = new EditText[3];
 
-    public GyroListener(MainActivity activity) {
+    public GyroscopeListener(MainActivity activity) {
         this.angularVelocityAbs = activity.findViewById(R.id.angular_velocity_abs);
         this.angularVelocityView[0] = activity.findViewById(R.id.angular_velocity_00);
         this.angularVelocityView[1] = activity.findViewById(R.id.angular_velocity_01);
@@ -35,7 +35,7 @@ public class GyroListener extends ComSensorEventListener {
             final float dT = (event.timestamp - timestamp) * NS2S;
 
             // Axis of the rotation sample, not normalized yet.
-            float [] omega = event.values ;
+            omega = event.values.clone() ;
 
             float axisX = omega[0];
             float axisY = omega[1];
