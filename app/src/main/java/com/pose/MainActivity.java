@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ComInterface {
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(gyroscopeListener, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
 
-        ComSensorEventListener.initSensorData();
+        ComSensorListener.initSensorData();
     }
 
     protected void onPause() {

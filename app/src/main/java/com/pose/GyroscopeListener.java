@@ -6,7 +6,7 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import android.widget.EditText;
 
-public class GyroscopeListener extends ComSensorEventListener {
+public class GyroscopeListener extends ComSensorListener {
 
     int eventIndex = 0;
 
@@ -85,6 +85,7 @@ public class GyroscopeListener extends ComSensorEventListener {
         // in order to get the updated rotation.
 
         if( acceleration != null && omega != null ) {
+            float [] acceleration = ComSensorListener.acceleration.clone();
             float [] gravity = new float[9];
             float [] magnetic = new float[9];
             float[] values = new float[3];

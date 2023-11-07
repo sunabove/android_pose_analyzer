@@ -5,7 +5,7 @@ import android.hardware.SensorEvent;
 import android.util.Log;
 import android.widget.EditText;
 
-public class AccelerometerListener extends ComSensorEventListener {
+public class AccelerometerListener extends ComSensorListener {
 
     int eventIndex = 0;
 
